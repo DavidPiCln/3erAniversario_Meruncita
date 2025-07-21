@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #fff;
+    --bg-color: #ffebf2;
+    --bg-envelope-color: #ffe3ed;
+    --envelope-tab: #ffccd5;
+    --envelope-cover: #ffc1d1;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color:  #003049;
+    --heart-color: #ff477e;
+}
+
+body {
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.title-container {
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+.title-container.elevate {
+    transform: translateY(-150px);
+}
+
+h1 {
+    font-family: "Marck Script", serif;
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 50px;
+    color: #444;
+}
+
+#cursor {
+    display: inline-block;
+    width: 3px;
+    margin-left: 4px;
+    background-color: #444;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+.container {
+    width: 500px;
+}
+
+.container > .envelope-wrapper {
+    position: relative;
+    background-color: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+    border-radius: 15px;
+}
+
+.envelope-wrapper > .envelope {
+    position: relative;
+    width: 500px;
+    height: 350px;
+}
+
+.envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    border-top: 180px solid var(--envelope-tab);
+    border-right: 200px solid transparent;
+    border-left: 200px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 10px;
+}
+
+.tap-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    transform: rotate(-90deg,90deg);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: var(--envelope-cover);
+}
+
+.tap-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    background-color: var(--envelope-cover);
+    transform: rotate(90deg, -90deg);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.envelope-wrapper.disable-envelope .envelope::before {
+    pointer-events: none;
+}
+
+.envelope > .letter {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary);
+    text-align: center;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+}
+
+.envelope > .letter > .text {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 16px;
+    border: 3px dotted var(--txt-color);
+    padding: 15px;
+    height: 100%;
+    line-height: 24px;
+    cursor: pointer;
+    overflow: scroll;
+}
+
+.heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background: var(--heart-color);
+    transform: translate(-50%, 0%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 1px 6px var(--shadow-color);
+    cursor: pointer;
+    z-index: 999;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--heart-color);
+    border-radius: 80%;
+}
+
+.heart:before {
+    top: -15px;
+}
+  
+.heart:after {
+    right: 15px;
+}
+
+.flap > .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.fade-heart {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.letter.letter-opening {
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+}
+
+.letter.closing-letter{
+    transform: translateY(-290px);
+    transition: transform .5s ease-in-out;
+    z-index: 10000;
+}
+
+.letter.opened{
+    z-index: 10000;
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+}
+
+::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--envelope-cover);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: var(--heart-color);
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        width: 400px;
+    }
+
+    .envelope-wrapper > .envelope {
+        position: relative;
+        width: 400px;
+        height: 300px;
+    }
+
+    .envelope-wrapper > .envelope::before {
+        border-top: 180px solid var(--envelope-tab);
+        border-right: 200px solid transparent;
+        border-left: 200px solid transparent;
+    }
+}
+
+.darken-background {
+    position: relative;
+}
+
+.darken-background::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* Agrega esto al final de tu archivo CSS */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que esté detrás de todo */
+    background: var(--bg-color); /* Usa el color de fondo que ya tienes */
+}
+
+/* Agrega esto al final de tu archivo CSS */
+.hide-particles {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Transición suave */
+}
+
+#info-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: "Comic Sans MS";
+    color: #fff;
+    background-color: rgba(52, 86, 136, 0.8);
+    border: 2px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#info-btn:hover {
+    background-color: rgba(52, 86, 136, 1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.matrix-background span {
+    color: #0f0;
+    font-family: monospace;
+    font-size: 20px;
+    position: absolute;
+    white-space: nowrap;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.modal-content h2 {
+    font-family: "Marck Script", serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.modal-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.modal-content ul li {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: var(--heart-color);
+}
