@@ -248,7 +248,7 @@ const textoTraducido = `
     El cariño por ti no necesita explicarse con palabras,  
     pero quiero que sepas lo inmenso que es mi aprecio.  
 
-    <br><strong>Feliz 3er. Aniversario</strong>, mi Dulce Meloncito. 🍈  
+    <br><strong>Feliz 3er. Aniversario</strong>, mi Dulce Corazon de Melon. ❤🍈  
     <strong>No importa qué día sea, siempre serás mi razón para sonreír.</strong><br>  
     Con mucho <strong>cariño</strong>,  
     <br>＊*♡( ⁎ᵕᴗᵕ⁎ ） Atte. David_PiCln</br>  
