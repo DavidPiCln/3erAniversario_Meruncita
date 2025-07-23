@@ -1,74 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <title>.:Una Carta Para ShuraHiwa:.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Itim&display=swap" rel="stylesheet">
+
+    <title> 🍀❤ Una Carta Para Merun 🍀❤</title>
 </head>
 <div id="particles-js"></div>
+
 <body>
     <div class="title-container">
-        <h1><span id="typed-text"></span><span id="cursor">|</span></h1>
+        <h1><span id="typed-text"></span><span id="cursor"></span></h1>
     </div>
     <div class="container">
         <div class="envelope-wrapper">
             <div class="envelope">
                 <div class="letter">
+
+
                     <div class="text">
-                        <strong>Querida ShuraHiwa</strong>
-                        <p>
-                            No se como empezar en escribirte esta <strong>por el día de San Valentín</strong>, es<em> fácil</em>perderse en<em> tu mirada</em> pero es difícil <em>explicar</em> lo que siento por ti.
-                            Mi corazón se llena de gratitud y emoción cada vez que pienso en ti, y cada momento a tu viendola cada noche tras noche es un regalo que atesoro profundamente. <code>Desde que</code> entraste en mi vida
-                            todo ha cambiado para mejor. "<strong>Tu risa</strong> ilumina mis días<strong>, y ese cariño me por vosotros nos</strong> hace sentir más fuertes y más queridos de lo que jamás imaginé.
-                            Gracias por cada gesto, cada palabra, cada arte. Haces sentir especial, como si el mundo entero se pusiera en pausa; como para viajar en moto por todo el mundo sin fin.
-                            Y seguir recordandote lo importante que eres para mí, para ellos, y para todos, lo valioso de tu presencia en nuestras vidas (cada minuto, día, semana, mes y año) y lo agradecido que estoy por cada instante en apoyarla.
-                            El cariño por ti no necesita ser explicado con palabras, pero siempre quiero que sepas el inmenso cariño y aprecio que tengo. <br> <strong>Feliz San Valentín</strong>, mi Biker Phanter.
-                            <strong>No importa qué día sea, siempre serás mi razón para sonreír.</strong><br> Con mucho <strong>cariño</strong>
-                            <br> Tu programador secreto. <br> <br> <code>"Eres lo mejor que me ha pasado."</code>
+                        <strong>Querida Merun</strong>
+                        <p id="mensaje">
+                            
+
+                            もう3年だね !!!<br>
+                                長いようで、でも初めて君に出会ったあの日のように感じるよ。<br>
+                                あれから君と過ごす時間は金よりも大切なものになって…<br>
+                                気づいたら、君は僕にとって空気のように欠かせない存在になってた。
+
+                                君が届けてくれる時間、言葉、笑顔、そしてその声…
+                                辛い日でも、それだけで救われるんだ。
+                                存在してくれてありがとう。君が君でいてくれてありがとう。
+
+                                歌ってる時も、ゲームしてる時も、雑談してる時も——
+                                君は、僕の知らなかった暗い場所さえも、そっと照らしてくれる。
+                                君の静かな優しさ、まっすぐな心、そして迷っていても輝いているその光が、僕たちにとってどれだけ大きな支えになっているか…。
+
+                                うまく言えない時もあるけど、
+                                君が君らしくいる姿に、僕たちは力をもらってる。
+                                君は僕たちの希望で、前に進む勇気をくれる存在なんだ。
+
+                                君は気づいていないかもしれないけど…
+                                僕にとって君は本当に特別で、かけがえのない存在だよ。
+                                あの日、星が瞬く夜に空を見上げて、君という光を見つけたこと。
+                                それは偶然なんかじゃなくて、運命だったと思ってる。
+
+                                僕はその小さな光のそばにいたい。
+                                どんな時でも、君が輝き続けられるように。
+
+                                君への想いは、言葉じゃ足りないけど、
+                                それでも伝えたい。この気持ちは本物だよ。
+
+                                <br><strong>3周年おめでとう</strong>、僕の大切なスイートメロンちゃん🍈<br>
+                                <strong>どんな日でも、君は僕の笑顔の理由だよ。</strong><br>
+                                心からの<strong>ありがとう</strong>を込めて。<br>
+                                <br>＊*♡( ⁎ᵕᴗᵕ⁎ ）愛を込めて David_PiCln より</br><br>
+                                <code>「君と出会えて、本当によかった。」</code><br>
+                                <strong>これからもずっと応援するよ。🌸💫</strong>
                         </p>
+
+
+
+                        <button id="btn-traducir" class="translate-btn"
+                            onclick="traducirMensaje()">💌スペイン語に翻訳する</button>
+                        </button>
+
+                        <!-- <button id="btn-juego" class="translate-btn" onclick="iniciarJuego()">❓ Quiero hacer una
+                            pregunta</button>
+
+                    </div> -->
+
+
                     </div>
                 </div>
+                <div class="heart"></div>
+                <div class="tap-right"></div>
+                <div class="tap-left"></div>
             </div>
-            <div class="heart"></div>
-            <div class="tap-right"></div>
-            <div class="tap-left"></div>
         </div>
-    </div>
 
-    <button id="info-btn">Información</button>
-    <div id="info-modal" class="modal">
-        <div class="modal-content">
-            <div class="matrix-background">
-                <span style="left: 10%; animation-duration: 5s;">0101010101</span>
-                <span style="left: 20%; animation-duration: 6s;">1010101010</span>
-                <span style="left: 30%; animation-duration: 4s;">1110001110</span>
-                <span style="left: 40%; animation-duration: 5.5s;">0001110001</span>
-                <span style="left: 50%; animation-duration: 7s;">1100110011</span>
-                <span style="left: 60%; animation-duration: 5s;">1010101010</span>
-                <span style="left: 70%; animation-duration: 6.5s;">0101010101</span>
-                <span style="left: 80%; animation-duration: 4.5s;">1110001110</span>
-                <span style="left: 90%; animation-duration: 5s;">0001110001</span>
+
+        <!-- <div id="juego-view" style="display: none;">
+        <div class="game-container">
+            <h2>¿Eres un dulce meloncito? 🍈</h2>
+            <div class="game-content">
+                <div class="buttons-wrapper">
+                    <button id="btn-si" class="game-btn btn-si">Sí, lo soy 😊</button>
+                    <button id="btn-no" class="game-btn btn-no">No, no lo soy</button>
+                </div>
             </div>
-            <span class="close-btn">&times;</span>
-            <h2>Información del Proyecto</h2>
-            <p><strong>Duración:</strong> 02 al 05 de Febrero</p>
-            <p><strong>Programador:</strong> BloodKiller616</p>
-            <p><strong>Agradecimiento Especial a:</strong> Cris_Ishigami por ayudarme en las ideas el diseño del página</p>
-            <p><strong>Herramientas utilizadas:</strong></p>
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>Google Fonts (Marck Script)</li>
-                <li>Particles.js (Efecto de partículas)</li>
-            </ul>
         </div>
-    </div>
-    <script src="script.js"></script>
+        <button onclick="volverACarta()" class="translate-btn">🔙 Volver a la carta</button>
+    </div> -->
+
+        <button id="info-btn">Información</button>
+
+
+
+
+        <div id="info-modal" class="modal">
+            <div class="modal-content">
+                <div class="matrix-background">
+                    <span style="left: 10%; animation-duration: 5s;">0101010101</span>
+                    <span style="left: 20%; animation-duration: 6s;">1010101010</span>
+                    <span style="left: 30%; animation-duration: 4s;">1110001110</span>
+                    <span style="left: 40%; animation-duration: 5.5s;">0001110001</span>
+                    <span style="left: 50%; animation-duration: 7s;">1100110011</span>
+                    <span style="left: 60%; animation-duration: 5s;">1010101010</span>
+                    <span style="left: 70%; animation-duration: 6.5s;">0101010101</span>
+                    <span style="left: 80%; animation-duration: 4.5s;">1110001110</span>
+                    <span style="left: 90%; animation-duration: 5s;">0001110001</span>
+                </div>
+                <span class="close-btn">&times;</span>
+                <h2>Información del Proyecto</h2>
+                <p><strong>Meruru: </strong>David_PiCln</p>
+                <p><strong>Herramientas utilizadas:</strong></p>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS3</li>
+                    <li>JavaScript</li>
+                    <li>Google Fonts (Great Vibe)</li>
+                    <li>Particles.js (Efecto de partículas)</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <script src="script.js"></script>
+
+
+
+
 </body>
+
 </html>
