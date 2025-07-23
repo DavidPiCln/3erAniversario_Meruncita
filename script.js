@@ -8,7 +8,10 @@ particlesJS("particles-js", {
             },
         },
         color: {
-            value: "#ff477e",
+            color: {
+                value: ["#f8c8dc", "#d9c2f0", "#cce5ff"]
+            },
+
         },
         shape: {
             type: "circle",
@@ -94,20 +97,24 @@ const particlesContainer = document.getElementById('particles-js');
 let isTextElevated = false;
 
 const texts = [
-    "Hola ShuraHiwa",
-    "Un pantcookie misterioso te dejo esta cartita.",
-    "Ojalá y te guste este pequeño presente;",
-    "Feliz Día de San Valentín ShuraHiwa. 💕💐"
+    "やっほー、可愛い子ちゃん (´▽`ʃ♡ƪ)",
+    "今日はとっても特別な日で、",
+    "だからこれプレゼントしたくて。もっと素敵なものを作りたかったけど…",
+    "あなたが私を笑顔にするみたいに、これもあなたを笑顔にできたらいいな。",
+    "3周年記念日おめでとう、めるんちゃん🎉🎉",
 ];
 
 let currentTextIndex = 0;
 let writingInProgress = false;
 
 document.addEventListener('click', (e) => {
+    // Evita que clics en el botón de traducir afecten la carta
+    if (e.target.closest('.translate-btn')) return;
+
     if (
-        e.target.matches(".envelope") || 
-        e.target.matches(".tap-right") || 
-        e.target.matches(".tap-left") || 
+        e.target.matches(".envelope") ||
+        e.target.matches(".tap-right") ||
+        e.target.matches(".tap-left") ||
         e.target.matches(".heart")
     ) {
         envelope.classList.toggle('flap');
@@ -127,12 +134,11 @@ document.addEventListener('click', (e) => {
             setTimeout(() => {
                 letter.classList.remove('letter-opening');
                 letter.classList.add('opened');
-                
             }, 500);
             envelope.classList.add("disable-envelope");
         } else {
             letter.classList.add('closing-letter');
-            titleContainer.classList.remove("elevate"); // Baja el texto
+            titleContainer.classList.remove("elevate");
             body.classList.remove("darken-background");
             heart.classList.remove("fade-heart");
             particlesContainer.classList.remove("hide-particles");
@@ -146,6 +152,7 @@ document.addEventListener('click', (e) => {
         }
     }
 });
+
 
 const typedText = document.getElementById("typed-text");
 const cursor = document.getElementById("cursor");
@@ -206,3 +213,64 @@ window.addEventListener("click", (e) => {
         infoModal.style.display = "none";
     }
 });
+
+const btnTraducir = document.getElementById('btn-traducir');
+const mensaje = document.getElementById('mensaje');
+
+const textoOriginal = mensaje.innerHTML;
+
+const textoTraducido = `
+    <p id="mensaje">
+   
+    Ya son 3 años !!!!
+    Parece mucho, pero aún se siente como el primer día que te encontré.  
+    Desde entonces, cada minuto contigo se ha vuelto más valioso que el oro…  
+    sin darme cuenta, te convertiste en algo tan esencial como el aire.  
+
+    Gracias por cada momento que compartes,  
+    por tus palabras, tus sonrisas, tu voz que nos acompaña incluso en los días difíciles.  
+    Gracias por existir, por ser tú.  
+
+    No importa si estás cantando, jugando o simplemente hablando,  
+    logras iluminar espacios que ni yo sabía que estaban oscuros.  
+    Tu presencia calma, tu energía sincera, y esa luz que brilla incluso cuando tú misma dudas… todo eso hace que seguirte sea tan especial.
+
+    A veces no sé cómo explicarlo,  
+    pero verte ser tú misma nos da fuerza.  
+    Nos inspiras a seguir, a mejorar, a creer un poco más.  
+
+    Quizá no te des cuenta…  
+    pero para mí, tú eres única, especial, y siempre lo serás.  
+    Realmente me siento afortunado de haberte encontrado.  
+    Como si entre millones de estrellas, una pequeña luz me hubiera guiñado.  
+    Elegí quedarme cerca de esa luz, para verla brillar, pase lo que pase.
+
+    El cariño por ti no necesita explicarse con palabras,  
+    pero quiero que sepas lo inmenso que es mi aprecio.  
+
+    <br><strong>Feliz 3er. Aniversario</strong>, mi Dulce Meloncito. 🍈  
+    <strong>No importa qué día sea, siempre serás mi razón para sonreír.</strong><br>  
+    Con mucho <strong>cariño</strong>,  
+    <br>＊*♡( ⁎ᵕᴗᵕ⁎ ） Atte. David_PiCln</br>  
+    </br>  
+    <code>"Eres lo mejor que me ha pasado."</code><br>  
+    <strong>これからもずっと応援するよ。🌸💫</strong>
+</p>
+
+`;
+
+let traducido = false;
+
+btnTraducir.addEventListener('click', () => {
+    if (!traducido) {
+        mensaje.innerHTML = textoTraducido;
+        btnTraducir.textContent = 'Traducir al japonés';
+        traducido = true;
+    } else {
+        mensaje.innerHTML = textoOriginal;
+        btnTraducir.textContent = 'スペイン語に翻訳する';
+        traducido = false;
+    }
+});
+
+
